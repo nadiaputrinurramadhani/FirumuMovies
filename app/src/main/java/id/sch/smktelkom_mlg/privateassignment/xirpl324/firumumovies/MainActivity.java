@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity
 
         changePage(R.id.nav_play);
         navigationView.setCheckedItem(R.id.nav_play);
+
     }
 
     @Override
