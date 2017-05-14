@@ -14,47 +14,46 @@ import java.util.ArrayList;
 
 import id.sch.smktelkom_mlg.privateassignment.xirpl324.firumumovies.HomeFragment;
 import id.sch.smktelkom_mlg.privateassignment.xirpl324.firumumovies.R;
-import id.sch.smktelkom_mlg.privateassignment.xirpl324.firumumovies.model.Now;
+import id.sch.smktelkom_mlg.privateassignment.xirpl324.firumumovies.model.Results;
 
 /**
- * Created by Nadia Putri on 5/13/2017.
+ * Created by Nadia Putri on 5/14/2017.
  */
 
-public class NowAdapter extends RecyclerView.Adapter<NowAdapter.ViewHolder> {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public String url = "https://image.tmdb.org/t/p/w500";
     public String image;
-    ArrayList<Now> mList;
+    ArrayList<Results> mList;
     HomeFragment homeFragment;
     Context context;
     private int lastposition = -1;
 
-
-    public NowAdapter(HomeFragment homeFragment, ArrayList<Now> mList) {
+    public MyAdapter(HomeFragment homeFragment, ArrayList<Results> mList, Context context) {
         this.mList = mList;
         this.homeFragment = homeFragment;
         this.context = context;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_list, parent, false);
-        ViewHolder vh = new ViewHolder(v);
+        MyViewHolder vh = new MyViewHolder(v);
         return vh;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        Now now = mList.get(position);
-        holder.tvJudul.setText(now.judul);
-        holder.tvDeskripsi.setText(now.deskripsi);
-        image = url + now.backdrop_path;
+    public void onBindViewHolder(MyAdapter.MyViewHolder holder, int position) {
+        Results results = mList.get(position);
+        holder.tvName.setText(results.title);
+        holder.tvDesc.setText(results.overview);
+        image = url + results.backdrop_path;
         Glide.with(context).load(image)
                 .crossFade()
                 .centerCrop()
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher)
-                .into(holder.ivFoto);
+                .into(holder.imageView);
     }
 
     @Override
@@ -64,16 +63,16 @@ public class NowAdapter extends RecyclerView.Adapter<NowAdapter.ViewHolder> {
         return 0;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView ivFoto;
-        TextView tvJudul;
-        TextView tvDeskripsi;
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
+        TextView tvName;
+        TextView tvDesc;
 
-        public ViewHolder(View v) {
+        public MyViewHolder(View v) {
             super(v);
-            ivFoto = (ImageView) v.findViewById(R.id.imageView);
-            tvJudul = (TextView) v.findViewById(R.id.textViewJudul);
-            tvDeskripsi = (TextView) v.findViewById(R.id.textViewDeskripsi);
+            tvName = (TextView) v.findViewById(R.id.textViewJudul);
+            tvDesc = (TextView) v.findViewById(R.id.textViewDeskripsi);
+            imageView = (ImageView) v.findViewById(R.id.imageView);
         }
     }
 }
