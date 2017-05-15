@@ -23,13 +23,13 @@ import id.sch.smktelkom_mlg.privateassignment.xirpl324.firumumovies.model.Result
 public class ComingSoonAdapter extends RecyclerView.Adapter<ComingSoonAdapter.MyViewHolder> {
     public String url = "https://image.tmdb.org/t/p/w500";
     public String image;
-    ArrayList<Results> mlist;
+    ArrayList<Results> mList;
     ComingSoon comingSoon;
     Context context;
     private int lastposition = -1;
 
-    public ComingSoonAdapter(ComingSoon comingSoon, ArrayList<Results> mlist, Context context) {
-        this.mlist = mlist;
+    public ComingSoonAdapter(ComingSoon comingSoon, ArrayList<Results> mList, Context context) {
+        this.mList = mList;
         this.comingSoon = comingSoon;
         this.context = context;
     }
@@ -44,7 +44,7 @@ public class ComingSoonAdapter extends RecyclerView.Adapter<ComingSoonAdapter.My
 
     @Override
     public void onBindViewHolder(ComingSoonAdapter.MyViewHolder holder, int position) {
-        Results results = mlist.get(position);
+        Results results = mList.get(position);
         holder.tvName.setText(results.title);
         holder.tvDesc.setText(results.overview);
         image = url + results.backdrop_path;
@@ -58,8 +58,8 @@ public class ComingSoonAdapter extends RecyclerView.Adapter<ComingSoonAdapter.My
 
     @Override
     public int getItemCount() {
-        if (mlist != null)
-            return mlist.size();
+        if (mList != null)
+            return mList.size();
         return 0;
     }
 
