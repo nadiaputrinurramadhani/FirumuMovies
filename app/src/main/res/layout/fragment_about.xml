@@ -8,6 +8,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Ini About" />
+        android:text="Nadia Putri Nur Ramadhani XIRPL3 / 24" />
 
 </FrameLayout>
