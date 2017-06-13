@@ -14,7 +14,7 @@
 *Navigation Drawer<br>
       
 **LINK APK**<br>
-*https://drive.google.com/open?id=0B3uz21dorAr5SEkwbUl4Y3dzMVU<br>
+*https://github.com/nadiaputrinurramadhani/FirumuMovies/blob/master/app-release.apk<br>
 
 *Deskripsi<br>
 *Merupakan Aplikasi aplikasi penyedia referensi film. <br>
